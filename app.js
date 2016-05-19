@@ -6,25 +6,8 @@
 (function(angular) {
   'use strict';
 angular.module('menusifuPay', ['ngRoute', 'ngAnimate'])
-  /* .config(_config)
-  .when('/',{template:'This is the default Route'})
-                .when('/route/:id',
-                    {
-                        template:'Referred item is {{ctrl.id}}' + ' and passed query-string values are {{ctrl.qStrName}} , {{ctrl.qStrAge}}',
-                        controller: ['$routeParams', function($routeParams) {
-                            var self=this;
-                            self.id = $routeParams.id;
-                            self.qStrName = $routeParams.name;
-                            self.qStrAge = $routeParams.age;
-                        }],
-                        controllerAs: 'ctrl'
-                    })
-                .otherwise({redirectTo:'/'});
-  resolve: {
-            message: function(messageService){
-                return messageService.getMessage();
-        }
-  */
+.directive('iscrollDirective', iscrollDirective)
+
   .config(function($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
@@ -163,7 +146,8 @@ alert("33")*/
     }*/
   })
   .controller('BookCtrl', function($routeParams,$scope) {
-loaded();
+   //loaded();
+   $scope.test=[1,2,3,4,5,6,7];
    /// alert("BookCtrl")
     //this.name = "BookCtrl";
     //this.params = $routeParams;
@@ -220,7 +204,30 @@ loaded();
 */
 
   });
+iscrollDirective.$inject = ['$timeout'];
+function iscrollDirective($timeout) {
+    return {
+        restrict:'A',
+        link: function ($scope, element, attrs) {
+            $timeout(function(){
+                console.log('#'+element.attr('id'));
+                var iscrollwrapper = new IScroll('#'+element.attr('id'), {
+                    scrollX: true,
+                    scrollY: true,
+                    mouseWheel: true,
+                    scrollbars: false,
+                    useTransform: true,
+                    useTransition: false,
+                    eventPassthrough: false,
+                });
+                iscrollwrapper.refresh();
+            })
+        }
+    }
+};
 })(window.angular);
+
+
  //var element = angular.element(document.getElementById("ngViewExample"));
 /*
    var viewContentElement = angular.element(
@@ -253,9 +260,42 @@ loaded();
 });*/
  }
 
- var myScroll;
+ /*var myScroll;
  function loaded () {
-myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: true, mouseWheel: true });
-}
+
+myScroll = new IScroll('#wrapper', { scrollX: true, scrollY: true, mouseWheel: true ,scrollbars: false,useTransform: true,useTransition: false, eventPassthrough: false});
+alert(myScroll)
+///window.onresize();
+}*/
+/*
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
+window.onresize = function(event) {
+    
+};
+/*setTimeout(function(){
+window.onresize=function(){alert("b");}
+
+},1000)
+*
+document.body.onresize=function(){alert("c");}
+window.addEventListener("resize",function(){
+  alert("A");
+});
+*/
+ /*   var iscrollwrapper;
+
+    function loaded() {
+
+        iscrollwrapper = new IScroll('#wrapper', {
+
+            scrollX: true,
+            scrollY: true,
+            mouseWheel: true,
+            scrollbars: false,
+            useTransform: true,
+            useTransition: false,
+            eventPassthrough: true,
+        });
+        //iscrollwrapper.refresh()
+    }*/

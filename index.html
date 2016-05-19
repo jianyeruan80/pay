@@ -11,9 +11,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-bindonce/0.3.3/bindonce.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.7/angular-local-storage.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-bindonce/0.3.3/bindonce.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.7/angular-local-storage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
  <!--	var app = angular.module('app', ['ngStorage'])
 .config(['$localStorageProvider',
     function ($localStorageProvider) {
@@ -35,26 +35,17 @@
 <body ng-app="menusifuPay">
   <div ng-controller="MainCtrl">
     <header class="hearder">
-      <a href="Book/Moby">Moby</a> |
-  <a href="Book/Moby/ch/1">Moby: Ch1</a> |
-  <a href="Book/Gatsby">Gatsby</a> |
-  <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
-  <a href="Book/Scarlet"  ng-click="alert('a')">Scarlet Letter</a>
+                        <a href="Book/Moby">Moby</a> |
+                    <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+                    <a href="Book/Gatsby">Gatsby</a> |
+                    <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+                    <a href="Book/Scarlet"  ng-click="alert('a')">Scarlet Letter</a>
     </header>  
-     <!--  Choose:
-      <a href="Book/Moby">Moby</a> |
-      <a href="Book/Moby/ch/1">Moby: Ch1</a> |
-      <a href="Book/Gatsby">Gatsby</a> |
-      <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
-      <a href="Book/Scarlet"  ng-click="alert('a')">Scarlet Letter</a>
-    <div ng-click="count = count + 1" ng-init="count=0">{{count}}</div>
-    <div ng-click="test123()">1111</div><br/><div onclick="test123()">222</div><br/>
- -->
-     
-        <div ng-view class="main">
+
+        <div ng-view>
             
         </div>
-      
+
       
      <footer class="footer">
     </footer>  
