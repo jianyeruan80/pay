@@ -37,6 +37,7 @@ angular.module('menusifuPay', ['ngRoute', 'ngAnimate'])
       this.$route = $route;
       this.$location = $location;
       this.$routeParams = $routeParams;
+
     //  alert("MainCtrl");
 
 /*
@@ -299,3 +300,63 @@ window.addEventListener("resize",function(){
         });
         //iscrollwrapper.refresh()
     }*/
+var  isMobile=function(){
+            var system = { 
+            win: false, 
+            mac: false, 
+            xll: false, 
+            ipad:false 
+        }; 
+    
+        var p = navigator.platform; 
+        system.win = p.indexOf("Win") == 0; 
+        system.mac = p.indexOf("Mac") == 0; 
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+        //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面 
+        if (system.win || system.mac || system.xll||system.ipad) { 
+        return false;
+        } else { 
+         return true;
+        } 
+}
+var sign=isMobile();
+(function(){ 
+  if(sign){
+ var supportOrientation=(typeof window.orientation == "number" && typeof window.onorientationchange == "object");
+
+                var updateOrientation=function(){
+                    if(supportOrientation){
+                        updateOrientation=function(){
+                            var orientation=window.orientation;
+                            switch(orientation){
+                                case 90:
+                                case -90:
+                                    orientation="landscape";
+                                    break;
+                                default:
+                                    orientation="portrait";
+                            }
+                            document.body.parentNode.setAttribute("class",orientation);
+                        };
+                    }else{
+                        updateOrientation=function(){
+                            var orientation=(window.innerWidth > window.innerHeight)? "landscape":"portrait";
+                            document.body.parentNode.setAttribute("class",orientation);
+                        };
+                    }
+                    updateOrientation();
+                };
+
+                var init=function(){
+                    updateOrientation();
+                    if(supportOrientation){
+                        window.addEventListener("orientationchange",updateOrientation,false);
+                    }else{    
+                        window.setInterval(updateOrientation,5000);
+                    }
+                };
+                window.addEventListener("DOMContentLoaded",init,false);
+               }
+})();
+
