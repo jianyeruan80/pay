@@ -32,23 +32,31 @@
     angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
   </script>
 </head>
-<body ng-app="menusifuPay">
-  <div ng-controller="MainCtrl">
-    <header class="hearder">
-                        <a href="Book/Moby">Moby</a> |
+<body ng-app="menusifuPay" ng-controller="MainCtrl" >
+ <!-- 
+   <div style="background:yellow;position:absolute;width:30%;z-index:3333;height:100%;top:0px;">
+       11111111111111111111
+      </div> -->
+  <div style="position:absolute;left:100px;right:0px;top:0;bottom:-100px;z-index:99999;width:700px;overflow: hidden; ">
+    <header class="hearder" >
+                        <a href="Book/Moby">Mobywwwwwwwwwwwwww</a> |
                     <a href="Book/Moby/ch/1">Moby: Ch1</a> |
                     <a href="Book/Gatsby">Gatsby</a> |
                     <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
                     <a href="Book/Scarlet"  ng-click="alert('a')">Scarlet Letter</a>
     </header>  
+ 
+
 
         <div ng-view>
             
         </div>
-
-      
+<!--     <div style="background:yellow;position:absolute;width:30%;z-index:3333;height:100%;top:0px;right:0">
+       11111111111111111111
+      </div> -->
+     
      <footer class="footer"> 
-          <div>111111111111111111111</div> 
+          <div style="color:#fff">111111111111111111111</div> 
            <div>分单/XdddddddddddddddX</div>
     </footer>  
 </div>
